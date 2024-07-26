@@ -2,7 +2,7 @@
 const provinces = ['Western Cape', 'Gauteng', 'Northern Cape', 'Eastern Cape', 'KwaZulu-Natal', 'Free State']
 
 // A list of names:
-const names = ['Ashwin', 'Sibongile', 'Jan-Hendrik', 'Sifso', 'Shailen', 'Frikkie']
+const names = ['Ashwin', 'Sibongile', 'Jan-Hendrik', 'Sfiso', 'Shailen', 'Frikkie']
 
 // A list of products with prices:
 const products = [
@@ -14,62 +14,52 @@ const products = [
   { product: 'tea', price: '' },
 ]
 
-/**
- * 1. **ForEach Basics**: Use `forEach` to log each name and each province to the console.
- * Then, log each name with a matching province in the format "Name (Province)".
- */
+//   1. ForEach Basics: Use `forEach` to log each name and each province to the console.
+//   Then, log each name with a matching province in the format "Name (Province)".
+
 names.forEach((name) => console.log(name));
 provinces.forEach((province) => console.log(province));
 
 
 names.forEach((name, index) => console.log(`${name}, ${provinces[index]}`));
 
-/**
- * 2. **Uppercase Transformation**: Use `map` to create a new array of province names in all uppercase.
- * Log the new array to the console.
- */
+
+  // 2. Uppercase Transformation: Use `map` to create a new array of province names in all uppercase.
+  // Log the new array to the console.
+ 
 let upperCaseProvinces = provinces.map((province) => province.toUpperCase());
 console.log(upperCaseProvinces);
 
-/**
- * 3. **Name Lengths**: Create a new array using `map` that contains the length of each name.
- *
- */
+
+  // 3. Name Lengths: Create a new array using `map` that contains the length of each name.
+ 
 let lengthName = names.map((name) => name.length);
 console.log(lengthName);
 
-/**
- * 4. **Sorting**: Use `sort` to alphabetically sort the provinces.
- * 
- */
+  // 4. Sorting: Use `sort` to alphabetically sort the provinces.
+  
 const sortProvinces = provinces.sort();
 console.log(sortProvinces);
 
-/**
- * 5. **Filtering Cape**: Use `filter` to remove provinces containing "Cape".
- * Log the count of remaining provinces.
- * @type {string[]}
- */
-let RemoveincludesCape = provinces.filter(
+  // 5. Filtering Cape: Use `filter` to remove provinces containing "Cape".
+  // Log the count of remaining provinces.
+  
+let RemoveCape = provinces.filter(
   (province) => !province.includes("Cape")
 );
-console.log(RemoveincludesCape);
+console.log(RemoveCape);
 
-/**
- * 6. **Finding 'S'**: Create a boolean array using `map` and
- * `some` to determine if a name contains the letter 'S'.
- * @type {boolean[]}
- */
+  // 6. Finding 'S': Create a boolean array using `map` and
+  // `some` to determine if a name contains the letter 'S'.
+ 
 const findS = names.map((name) => {
   return name.split("").some((char) => char.toLowerCase() === "s");
 });
 
 console.log(findS);
-/**
- * 7. **Creating Object Mapping**: Use `reduce` to transform the
- *  names array into an object mapping names to their respective provinces.
- * @type {Object.<string, string>}
- */
+
+  // 7. Creating Object Mapping: Use `reduce` to transform the
+  //  names array into an object mapping names to their respective provinces. 
 
 const nameProvinceMap = names.reduce((map, name, index) => {
   map[name] = provinces[index];
@@ -77,31 +67,29 @@ const nameProvinceMap = names.reduce((map, name, index) => {
 }, {});
 
 console.log("nameProvinceMap:", nameProvinceMap);
-//ADVANCED~
-/**
- * 1. **Log Products**: Iterate over the products array, logging each product name.
- */
+
+//ADVANCED EXERCISES
+
+  // 1
+  // . Log Products: Iterate over the products array, logging each product name.
+
 console.log(
   "Products:",
   products.map((item) => item.product)
 );
 
-/**
- * 2. **Filter by Name Length**: Filter out products with names
- * longer than 5 characters.
- * @type {Object[]}
- */
+
+  // 2. Filter by Name Length: Filter out products with names
+  // longer than 5 characters.
+ 
 console.log(
   "Filtered Products (Name Length ≤ 5):",
   products.filter((item) => item.product.length <= 5)
 );
 
-/**
- * 3. **Price Manipulation**: Filter out products without prices, convert string prices to numbers,
- * and calculate the total price using `reduce`.
- * @type {number}
- */
-
+  // 3. Price Manipulation: Filter out products without prices, convert string prices to numbers,
+  // and calculate the total price using `reduce`.
+ 
 // Filter out products with valid prices
 const validProducts = products.filter(
   (item) => String(item.price).trim() !== ""
@@ -115,21 +103,18 @@ const totalPrice = validProducts.reduce((total, item) => {
 }, 0);
 
 console.log(`Total Price : R ${totalPrice}`);
-/**
- * 4. **Concatenate Product Names**: Use `reduce` to concatenate
- *  all product names into a single string.
- * @type {string}
- */
+
+  // 4. Concatenate Product Names: Use `reduce` to concatenate
+  //  all product names into a single string.
+ 
 const concatString = products.reduce(
   (string, item) => string + " " + item.product,
   ""
 );
 console.log(concatString);
 
-/**
- * 5. **Find Extremes in Prices**: Identify the highest and lowest-priced items, returning a string formatted as "Highest: X. Lowest: Y."
- * @type {string}
- */
+  // 5. Find Extremes in Prices: Identify the highest and lowest-priced items, returning a string formatted as "Highest: X. Lowest: Y."
+ 
 const highestPriced =
   "Highest: " +
   Math.max(
@@ -148,10 +133,8 @@ const lowestPriced =
 
 console.log(highestPriced + lowestPriced);
 
-/**
- * 6. **Object Transformation**: Using `Object.entries` and `reduce`, recreate the products object with keys 'name' and 'cost', maintaining their original values.
- * @type {Object[]}
- */
+  // 6. Object Transformation: Using `Object.entries` and `reduce`, recreate the products object with keys 'name' and 'cost', maintaining their original values.
+
 console.log(
   Object.entries(products).reduce(
     (accumulatorArray, [, { product, price }]) => {
