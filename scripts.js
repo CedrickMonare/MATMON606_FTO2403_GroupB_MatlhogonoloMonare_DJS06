@@ -20,16 +20,13 @@ const products = [
 names.forEach((name) => console.log(name));
 provinces.forEach((province) => console.log(province));
 
-
 names.forEach((name, index) => console.log(`${name}, ${provinces[index]}`));
-
 
   // 2. Uppercase Transformation: Use `map` to create a new array of province names in all uppercase.
   // Log the new array to the console.
  
 let upperCaseProvinces = provinces.map((province) => province.toUpperCase());
 console.log(upperCaseProvinces);
-
 
   // 3. Name Lengths: Create a new array using `map` that contains the length of each name.
  
@@ -77,7 +74,6 @@ console.log(
   "Products:",
   products.map((item) => item.product)
 );
-
 
   // 2. Filter by Name Length: Filter out products with names
   // longer than 5 characters.
